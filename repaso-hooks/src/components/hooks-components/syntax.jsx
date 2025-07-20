@@ -32,9 +32,9 @@ function Syntax(props) {
 
     return (
 
-        <section className="syntax">
-            <h2>Syntax</h2>
-            <pre>{syntax.length === 0 ? 'Loading...' : syntax}</pre>
+        <section className="inner-container">
+            <h2 className="inner-container-header inner-container-title">Syntax</h2>
+            <pre className="inner-container-content">{syntax.length === 0 ? 'Loading...' : syntax}</pre>
 
         </section>
 

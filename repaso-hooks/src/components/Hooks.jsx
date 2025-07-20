@@ -14,16 +14,18 @@ function Hooks() {
     return (
         <>
             <h1>{state}</h1>
-            <div>
-                <button onClick={() => setState('useCallback')} >useCallback</button>
-                <button onClick={() => setState('useContext')} >useContext</button>
-                <button onClick={() => setState('useEffect')} >useEffect</button>
-                <button onClick={() => setState('useMemo')} >useMemo</button>
-                <button onClick={() => setState('useReducer')} >useReducer</button>
-                <button onClick={() => setState('useRef')} >useRef</button>
-                <button onClick={() => setState('useState')} >useState</button>
-            </div>
-            <div className="info-container">
+            <nav>
+                <button className="nav-buttons nav-btn" onClick={() => setState('useCallback')} >useCallback</button>
+                <button className="nav-buttons nav-btn"  onClick={() => setState('useContext')} >useContext</button>
+                <button className="nav-buttons nav-btn"  onClick={() => setState('useEffect')} >useEffect</button>
+                <button className="nav-buttons nav-btn"  onClick={() => setState('useMemo')} >useMemo</button>
+                <button className="nav-buttons nav-btn"  onClick={() => setState('useReducer')} >useReducer</button>
+                <button className="nav-buttons nav-btn"  onClick={() => setState('useRef')} >useRef</button>
+                <button className="nav-buttons nav-btn"  onClick={() => setState('useState')} >useState</button>
+            </nav>
+
+            <div className="main-content">
+            <div className="container inner-containers info-container">
                 {`Prueba ${state}`}
                 <Explanation state={state} />
                 <Syntax state={state} />
@@ -31,8 +33,9 @@ function Hooks() {
 
             </div>
 
-            <div className="interactive-example">
+            <div className="container interactive-example">
 
+            </div>
             </div>
 
         </>

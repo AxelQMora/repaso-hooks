@@ -33,9 +33,9 @@ function Explanation(props) {
     }, [state]);
 
     return (
-        <section className="explanation">
-            <h2>Explanation</h2>
-            <p>{explanation.length === 0 ? 'Loading...' : explanation}</p>
+        <section className=" inner-container">
+            <h2 className="inner-container-header">Explanation</h2>
+            <p className="inner-container-content">{explanation.length === 0 ? 'Loading...' : explanation}</p>
         </section>
     );
 }

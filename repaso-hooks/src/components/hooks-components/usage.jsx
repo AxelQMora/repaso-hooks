@@ -35,9 +35,9 @@ function Usage(props) {
 
     return (
 
-        <section className="usage">
-            <h2>Usage</h2>
-            <p>{usage.length === 0 ? 'Loading...' : usage}</p>
+        <section className="inner-container">
+            <h2 className="inner-container-header inner-container-title">Usage</h2>
+            <p className="">{usage.length === 0 ? 'Loading...' : usage}</p>
         </section>
 
     );

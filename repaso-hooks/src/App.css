@@ -1,1 +1,220 @@
 
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+body {
+ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+ background: #0a0a0a;
+ color: #ffffff;
+ height: 100vh;
+ overflow: hidden;
+}
+
+/* Navegación */
+nav {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 80px;
+ background: rgba(15, 15, 15, 0.95);
+ backdrop-filter: blur(20px);
+ border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+ position: relative;
+ z-index: 1000;
+}
+
+.nav-buttons {
+ display: flex;
+ gap: 2px;
+ background: rgba(255, 255, 255, 0.05);
+ padding: 4px;
+ border-radius: 50px;
+ border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-btn {
+ padding: 12px 24px;
+ background: transparent;
+ border: none;
+ color: rgba(255, 255, 255, 0.7);
+ cursor: pointer;
+ border-radius: 50px;
+ font-size: 14px;
+ font-weight: 500;
+ transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+ position: relative;
+ overflow: hidden;
+}
+
+.nav-btn::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: -100%;
+ width: 100%;
+ height: 100%;
+ background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+ transition: left 0.5s;
+}
+
+.nav-btn:hover::before {
+ left: 100%;
+}
+
+.nav-btn:hover {
+ background: rgba(255, 255, 255, 0.1);
+ color: #ffffff;
+ transform: translateY(-1px);
+}
+
+.nav-btn.active {
+ background: linear-gradient(135deg, #6366f1, #8b5cf6);
+ color: #ffffff;
+ box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+}
+
+/* Contenedores principales */
+.main-content {
+ display: flex;
+ height: 100vh;
+ gap: 2px;
+ padding: 2px;
+ background: #0a0a0a;
+}
+
+.container {
+ flex: 1;
+ background: linear-gradient(145deg, rgba(20, 20, 25, 0.8), rgba(15, 15, 20, 0.9));
+ border: 1px solid rgba(255, 255, 255, 0.1);
+ border-radius: 20px;
+ position: relative;
+ overflow: hidden;
+ transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+ cursor: pointer;
+}
+
+.container::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background: linear-gradient(145deg, 
+   rgba(99, 102, 241, 0.1) 0%, 
+   rgba(139, 92, 246, 0.05) 50%, 
+   rgba(59, 130, 246, 0.1) 100%
+ );
+ opacity: 0;
+ transition: opacity 0.4s ease;
+}
+
+.container:hover::before {
+ opacity: 1;
+}
+
+.container:hover {
+ transform: translateY(-4px) scale(1.02);
+ border-color: rgba(99, 102, 241, 0.3);
+ box-shadow: 
+   0 20px 60px rgba(0, 0, 0, 0.4),
+   0 0 0 1px rgba(99, 102, 241, 0.2),
+   inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.container-content {
+ position: relative;
+ z-index: 2;
+ height: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 18px;
+ font-weight: 300;
+ letter-spacing: 1px;
+ color: rgba(255, 255, 255, 0.8);
+}
+
+/* Efectos de partículas */
+.container::after {
+ content: '';
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ width: 200px;
+ height: 200px;
+ background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+ transform: translate(-50%, -50%) scale(0);
+ transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+ pointer-events: none;
+}
+
+.container:hover::after {
+ transform: translate(-50%, -50%) scale(3);
+}
+
+/* Animaciones adicionales */
+@keyframes pulse {
+ 0%, 100% { opacity: 1; }
+ 50% { opacity: 0.5; }
+}
+
+.nav-btn.active::after {
+ content: '';
+ position: absolute;
+ bottom: -1px;
+ left: 50%;
+ width: 0;
+ height: 2px;
+ background: linear-gradient(90deg, #6366f1, #8b5cf6);
+ transform: translateX(-50%);
+ animation: expandWidth 0.3s ease forwards;
+}
+
+@keyframes expandWidth {
+ to { width: 80%; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+ .nav-buttons {
+   gap: 1px;
+   padding: 3px;
+ }
+ 
+ .nav-btn {
+   padding: 10px 16px;
+   font-size: 13px;
+ }
+ 
+ .main-content {
+   flex-direction: column;
+   gap: 1px;
+   padding: 1px;
+ }
+ 
+ .container:hover {
+   transform: translateY(-2px) scale(1.01);
+ }
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+ width: 6px;
+}
+
+::-webkit-scrollbar-track {
+ background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+ background: rgba(99, 102, 241, 0.5);
+ border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+ background: rgba(99, 102, 241, 0.7);
+}
